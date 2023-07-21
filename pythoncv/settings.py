@@ -136,9 +136,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "assets/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'assets/media/img')
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets/media/img')
+
 
 
 # Default primary key field type
@@ -147,3 +150,5 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = '/admin/'

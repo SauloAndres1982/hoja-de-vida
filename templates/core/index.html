@@ -2,14 +2,15 @@
 {% block title %}Inicio{% endblock %}
 
 {% block content %}
-
-podemos hacer alguito acá
-
+<div class="text-center">
+    <i class="bi bi-alarm"></i>
+    Cargando...
+</div>
 <script type="text/javascript">
     setTimeout(
         function() {
             window.location.href = '/accounts/login';
-        }, 5000
+        }, 3600
     );
 </script>
 
