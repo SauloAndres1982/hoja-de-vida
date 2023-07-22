@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% block title %}plantilla{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="container mt-5">
+  <div class="row">
+    {% for exp in experiencia %}
+      <div class="col-md-3">
+        <div class="card mb-3" style="width:100%">
+          <div class="card-body text-center">
+            <h6 class="card-title"><h4>Cargo: </h4>{{ exp.cargo }}</h6>
+            
+            <!-- Usamos all para obtener todas las tecnologías relacionadas y join para mostrarlas separadas por coma -->
+            <p class="card-text"><h4>Empresa:</h4> {{ exp.empresa }}</p>
+            <p class="card-text"><h4>Descripción: </h4>{{ exp.descripcion }}</p>
+          </div>
+          <div class="card-footer text-center">
+            <!-- Aquí puedes agregar más contenido si lo necesitas -->
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

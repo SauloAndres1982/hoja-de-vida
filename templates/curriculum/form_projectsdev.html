@@ -1,6 +1,113 @@
 {% extends 'core/base.html' %}
-{% block title %}Ingreso{% endblock %}
+{% block title %}plantilla{% endblock %}
 
 {% block content %}
 {% load static %}
+<form>
+    <style>
+        /* Estilos CSS para el formulario */
+        form {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      
+        .form-control {
+          margin-bottom: 20px;
+        }
+      
+        /* Estilos adicionales para mejorar la apariencia */
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+      
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      
+        .submit-btn {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          background-color: #4caf50;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+      </style>
+      
+      <form>
+        <fieldset>
+          <legend>Proyectos desarrollados</legend>
+      
+          <div class="form-control">
+            <label for="name">Nombre del proyecto</label>
+            <input type="text" id="name" placeholder="Datos requeridos" required />
+          </
+      
+    <fieldset>
+        <legend>Proyectos desarrollados</legend>
+        <div class="form-control" style="width:300px">
+            <label for="name">Nombre del proyecto</label>
+            <input type="name" id="name" placeholder="Datos requeridos" required />
+        </div> 
+        <div class="form-control" style="width:300px">
+            <label for="url">Url</label>
+            <input
+              type="url"
+              id="url"
+              placeholder="Ingresa tu url"
+              required
+            /> 
+        </div>
+        <div class="form-control" style="width:300px">
+            <label for="message">Mensaje</label>
+            <textarea
+              id="message"
+              cols="30"
+              rows="20"
+              placeholder="Ingresa tu mensaje"
+              required
+            ></textarea>
+        </div>
+        <div style="width:300px">
+          <input type="submit" value="Enviar" class="submit-btn" />
+
+          <label for="hobbies">Tecnologías dominadas:</label>
+          <textarea id="hobbies" name="Tecnologías" rows="4" cols="32"></textarea>
+          <br>
+          
+        </div>
+        <div class="form-control" style="width:300px">
+            <label for="message">Descripción</label>
+            <textarea
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="descripción"
+              required
+            ></textarea>
+            
+        </div>
+        <input type="submit" value="Guardar">
+
+    </form>
+    </fieldset>
+</form>
+
+    </fieldset>
+    
+</form>
+
 {% endblock %}
+
