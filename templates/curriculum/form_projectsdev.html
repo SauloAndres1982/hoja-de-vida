@@ -1,113 +1,104 @@
+<!-- nombre_de_la_plantilla.html -->
 {% extends 'core/base.html' %}
 {% block title %}plantilla{% endblock %}
 
 {% block content %}
 {% load static %}
-<form>
-    <style>
-        /* Estilos CSS para el formulario */
-        form {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-      
-        .form-control {
-          margin-bottom: 20px;
-        }
-      
-        /* Estilos adicionales para mejorar la apariencia */
-        label {
-          display: block;
-          margin-bottom: 5px;
-          font-weight: bold;
-        }
-      
-        input,
-        textarea {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-        }
-      
-        .submit-btn {
-          display: block;
-          width: 100%;
-          padding: 10px;
-          background-color: #4caf50;
-          color: #fff;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 16px;
-        }
-      </style>
-      
-      <form>
-        <fieldset>
-          <legend>Proyectos desarrollados</legend>
-      
-          <div class="form-control">
-            <label for="name">Nombre del proyecto</label>
-            <input type="text" id="name" placeholder="Datos requeridos" required />
-          </
-      
-    <fieldset>
-        <legend>Proyectos desarrollados</legend>
-        <div class="form-control" style="width:300px">
-            <label for="name">Nombre del proyecto</label>
-            <input type="name" id="name" placeholder="Datos requeridos" required />
-        </div> 
-        <div class="form-control" style="width:300px">
-            <label for="url">Url</label>
-            <input
-              type="url"
-              id="url"
-              placeholder="Ingresa tu url"
-              required
-            /> 
+<style>
+    /* Estilos para la plantilla */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .form-group input[type="text"],
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+  
+    .form-group textarea {
+      resize: vertical;
+    }
+  
+    .submit-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well well-sm">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">Nombre del proyecto:</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.url.id_for_label }}">Link del proyecto:</label>
+              {{ form.url }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.tecnology.id_for_label }}">Tecnologías utilizadas:</label>
+              {{ form.tecnology }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.description.id_for_label }}">Descripción del proyecto:</label>
+              {{ form.description }}
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Guardar" class="submit-btn">
+            </div>
+          </form>
         </div>
-        <div class="form-control" style="width:300px">
-            <label for="message">Mensaje</label>
-            <textarea
-              id="message"
-              cols="30"
-              rows="20"
-              placeholder="Ingresa tu mensaje"
-              required
-            ></textarea>
-        </div>
-        <div style="width:300px">
-          <input type="submit" value="Enviar" class="submit-btn" />
+      </div>
+    </div>
+  </div>
+  
 
-          <label for="hobbies">Tecnologías dominadas:</label>
-          <textarea id="hobbies" name="Tecnologías" rows="4" cols="32"></textarea>
-          <br>
-          
-        </div>
-        <div class="form-control" style="width:300px">
-            <label for="message">Descripción</label>
-            <textarea
-              id="message"
-              cols="30"
-              rows="10"
-              placeholder="descripción"
-              required
-            ></textarea>
-            
-        </div>
-        <input type="submit" value="Guardar">
-
-    </form>
-    </fieldset>
-</form>
-
-    </fieldset>
-    
-</form>
+{% for dato in datos_modelo %}
+  <div>
+    <h2>{{ dato.name }}</h2>
+    <p>Tecnologías utilizadas: {{ dato.tecnology }}</p>
+    <p>URL: {{ dato.url }}</p>
+    <p>Descripción: {{ dato.description }}</p>
+    <!-- Otros campos del modelo -->
+  </div>
+{% endfor %}
 
 {% endblock %}
+
+  
 

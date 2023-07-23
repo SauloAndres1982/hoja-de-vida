@@ -17,7 +17,7 @@ class ProyectoDev(models.Model):
     url = models.URLField(verbose_name="Link del proyecto", max_length=100)
     tecnology = models.ManyToManyField(Tecnologias)
     description = models.TextField(verbose_name="descripcion")
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False, null=True, blank=True, verbose_name="Creado")
     modified = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="Modificado")    
     USERNAME_FIELD = "email"
