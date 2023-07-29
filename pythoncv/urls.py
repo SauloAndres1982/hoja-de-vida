@@ -21,8 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("experiencia/", include("curriculum.urls")),
-    path("proyectodev/", include("curriculum.urls")), 
+    path("perfil/", include("curriculum.urls")), 
     path('', include('core.urls')),
     path('accounts/', include("django.contrib.auth.urls")),
 ]
